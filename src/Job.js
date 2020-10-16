@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactMarkdown from "react-markdown"; 
 import {Card,Button, Badge} from "react-bootstrap"
 
 export default function Job({job}) {
@@ -15,6 +16,9 @@ export default function Job({job}) {
                         </Card.Subtitle>
                         <Badge variant="secondary m-1">{job.type}</Badge>
                         <Badge variant="secondary m-1">{job.location}</Badge>
+                        <div style={{wordBreak:"break-all"}}>
+                            How to apply:- <ReactMarkdown source={job.how_to_apply} />
+                        </div>
                     </div>
                 </div>
             </Card.Body>
