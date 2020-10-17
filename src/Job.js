@@ -19,7 +19,7 @@ export default function Job({ job }) {
                         <Badge variant="secondary m-1">{job.type}</Badge>
                         <Badge variant="secondary m-1">{job.location}</Badge>
                         <div style={{wordBreak:"break-all"}}>
-                            How to apply:- <ReactMarkdown source={job.how_to_apply} />
+                            How to apply:- <ReactMarkdown escapeHtml={false} i source={job.how_to_apply} />
                         </div>
                     </div>
                     <img className="d-none d-md-block" height="50" src={job.company_logo} />
@@ -33,7 +33,7 @@ export default function Job({ job }) {
             </Card.Text>
             <Collapse in={viewDetail}>
                 <div className="mt-4">
-                    <ReactMarkdown source={job.description} />
+                    <ReactMarkdown escapeHtml={false} source={job.description} />
                 </div>
             </Collapse>
             </Card.Body>
