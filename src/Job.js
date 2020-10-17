@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactMarkdown from "react-markdown"; 
-import {Card,Button, Badge} from "react-bootstrap"
+import {Card,Button, Badge, Collapse} from "react-bootstrap"
 
 export default function Job({job}) {
+    const [viewDetail,setViewDetail]=useState(false);
+    const [open,setOpen]=useState(false);
     return (
         <Card>
             <Card.Body>
@@ -22,8 +24,19 @@ export default function Job({job}) {
                     </div>
                     <img className="d-none d-md-block" height="50" src={job.company_logo} />
                 </div>
+            <Card.Text>
+                <Button variant="primary" onClick={
+                    ()=>setViewDetail(!viewDetail)
+                }>
+                    {viewDetail ? "Hide Details" : "View Details"}
+                </Button>
+            </Card.Text>
+            <Collapse in={viewDetail}>
+                <div className="mt-4">
+                    <ReactMarkdown source={job.description} />
+                </div>
+            </Collapse>
             </Card.Body>
-            {/* //{console.log(job)} */}
         </Card>
     )
 }
