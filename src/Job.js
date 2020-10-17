@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import ReactMarkdown from "react-markdown"; 
-import {Card,Button, Badge, Collapse} from "react-bootstrap"
+import { Card, Button, Badge, Collapse } from "react-bootstrap";
 
-export default function Job({job}) {
+
+export default function Job({ job }) {
     const [viewDetail,setViewDetail]=useState(false);
     const [open,setOpen]=useState(false);
     return (
