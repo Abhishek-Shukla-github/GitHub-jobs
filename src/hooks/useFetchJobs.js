@@ -44,14 +44,13 @@ export default function useFetchJobs(params,page){
             if(axios.isCancel(e)) return;
             dispatch({type:ACTIONS.ERROR,payload:{error:e}});
         })
-        
 
         //Calling the API again to check if the next page exists
             axios.get(BASE_URL,{
             cancelToken2:cancelToken2.source,
             params:{markdown:true,page:page+1,...params}
         }).then((res)=>{
-            dispatch({ type: ACTIONS.UPDATE_HAS_NEXT_PAGE, payload: { hasNextPage: (res.data.length !== 1) } })
+            dispatch({ type: ACTIONS.UPDATE_HAS_NEXT_PAGE, payload: { hasNextPage: (res.data.length > 0) } })
         })
         .catch((e)=>{
             if(axios.isCancel(e)) return;

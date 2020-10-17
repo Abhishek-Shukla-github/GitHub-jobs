@@ -5,7 +5,6 @@ import { Card, Button, Badge, Collapse } from "react-bootstrap";
 
 export default function Job({ job }) {
     const [viewDetail,setViewDetail]=useState(false);
-    const [open,setOpen]=useState(false);
     return (
         <Card>
             <Card.Body>

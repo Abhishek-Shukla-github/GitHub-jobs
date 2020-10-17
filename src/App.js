@@ -8,6 +8,7 @@ function App() {
   const [params, setParams] = useState({})
   const [page, setPage] = useState(2)
   const {jobs,loading,error,hasNextPage}=useFetchJobs(params,page);
+  console.log(jobs);
   return (
     <>
     <div className="App">
