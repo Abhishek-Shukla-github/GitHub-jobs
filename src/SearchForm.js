@@ -6,10 +6,6 @@ import { ThemeContext } from "./contexts/ThemeContext";
 
 export default function SearchForm({params,onParamChange}) {
     const { isDarkMode } = useContext(ThemeContext);
-    const style = {
-        margin: "30px",
-        backgroundColor: isDarkMode? "white" : "white",
-    }
     return (
         <>
             <form>

@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 export default function Job({ job }) {
     const [viewDetail, setViewDetail] = useState(false);
-    const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
+    const { isDarkMode} = useContext(ThemeContext);
     return (
         <Card style={{margin:"30px"}}>
             <Card.Body style={isDarkMode?{backgroundColor:"#F0F0F0"}:{backgroundColor:"#e9ebe4"}}>

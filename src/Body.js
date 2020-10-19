@@ -30,7 +30,7 @@ export default function Body() {
       <div className="mt-5 text-center">
           <SearchForm params={params} onParamChange={handleParamChange}/>
       </div>
-        <div className="text-center">    
+        <div className="d-flex align-items-center justify-content-center">    
           <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage}/>
         </div>
         <Loader loading={loading} jobs={jobs} />
