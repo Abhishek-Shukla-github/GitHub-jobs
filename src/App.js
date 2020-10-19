@@ -7,6 +7,7 @@ import SearchForm from './SearchForm';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import "./styles/loader.css"
 
 function App() {
   const [params, setParams] = useState({})
@@ -24,7 +25,7 @@ function App() {
   
   return (
     <>
-      <div className="App" style={{backgroundColor:"#ede4e4"}}>
+      <div className="App">
         <Container>
           <div style={{marginBottom:"5rem"}}>
           <AppBar >
@@ -35,12 +36,25 @@ function App() {
             </Toolbar>
           </AppBar>
         </div>
-        <div className="mt-5" style={{backgroundColor:"#ede4e4",display:"flex",justifyContent:"center",alignItems:"center",alignSelf:"center"}}>
+        <div className="mt-5" style={{display:"flex",justifyContent:"center",alignItems:"center",alignSelf:"center"}}>
           <SearchForm params={params} onParamChange={handleParamChange}/>
         </div>
           <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage}/>
-        {loading && <h1>Loading....</h1>}
-        {error && <h1>Error :( ...try refreshing</h1>}
+          {loading &&
+                <div className="row cf loader">
+                  <div className="three col">
+                    <div className="loader" id="loader-5">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>}
+          {error && <div className="text-center d-flex align-items-center">
+            <img src="https://media1.tenor.com/images/f120d1754c380a11c86ecb4e717f0613/tenor.gif" />
+            <h1 className="text-danger">Error :( ...try refreshing</h1>
+          </div>}
         {jobs.map((job)=>{
         return <Job key={job.id} job={job} />
     })}
