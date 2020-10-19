@@ -1,8 +1,6 @@
 import React from 'react'
 
 export default function Error({ error, jobs }) {
-    console.log("In error");
-    console.log(jobs);
     return (
         <div>
             {error && <div className="text-center d-flex align-items-center">

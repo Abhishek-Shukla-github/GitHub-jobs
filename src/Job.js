@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import ReactMarkdown from "react-markdown"; 
 import { Card, Button, Badge, Collapse } from "react-bootstrap";
+import { ThemeContext } from "./contexts/ThemeContext";
+import { useContext } from 'react';
 
 
 export default function Job({ job }) {
-    const [viewDetail,setViewDetail]=useState(false);
+    const [viewDetail, setViewDetail] = useState(false);
+    const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
     return (
         <Card style={{margin:"30px"}}>
-            <Card.Body style={{backgroundColor:"#e9ebe4"}}>
+            <Card.Body style={isDarkMode?{backgroundColor:"white"}:{backgroundColor:"#e9ebe4"}}>
                 <div className="d-flex justify-content-between">
                     <div>
                         <Card.Title>
