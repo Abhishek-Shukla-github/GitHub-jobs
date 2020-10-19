@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import useFetchJobs from './hooks/useFetchJobs';
 import { Container } from "react-bootstrap";
-import ThemeContext from "./contexts/ThemeContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Job from './Job';
 import JobsPagination from "./JobsPagination";
 import SearchForm from './SearchForm';
@@ -25,7 +25,7 @@ function App() {
   }
   
   return (
-    <>
+    <ThemeProvider>
       <div className="App">
         <Container>
           <Navbar />
@@ -40,7 +40,7 @@ function App() {
     })}
       </Container>
     </div>
-    </>
+    </ThemeProvider>
   );
 }
 
