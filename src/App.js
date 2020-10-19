@@ -7,6 +7,7 @@ import SearchForm from './SearchForm';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Switch from "@material-ui/core/Switch";
 import "./styles/loader.css"
 
 function App() {
@@ -33,7 +34,11 @@ function App() {
               <Typography  variant="h6" color="inherit">
                 GitHub Jobs
               </Typography>
-            </Toolbar>
+                  <Switch className="ml-3"
+        name="checkedB"
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+      />
+              </Toolbar>
           </AppBar>
         </div>
         <div className="mt-5" style={{display:"flex",justifyContent:"center",alignItems:"center",alignSelf:"center"}}>
