@@ -24,9 +24,9 @@ function App() {
   
   return (
     <>
-      <div className="App">
+      <div className="App" style={{backgroundColor:"#ede4e4"}}>
         <Container>
-          <div style={{backgroundColor:"red",marginBottom:"8rem"}}>
+          <div style={{marginBottom:"5rem"}}>
           <AppBar >
             <Toolbar>
               <Typography  variant="h6" color="inherit">
@@ -35,10 +35,9 @@ function App() {
             </Toolbar>
           </AppBar>
         </div>
-        <div className="mt-5">
+        <div className="mt-5" style={{backgroundColor:"#ede4e4",display:"flex",justifyContent:"center",alignItems:"center",alignSelf:"center"}}>
           <SearchForm params={params} onParamChange={handleParamChange}/>
         </div>
-        <h1 className="mb-2">Github Jobs</h1>
           <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage}/>
         {loading && <h1>Loading....</h1>}
         {error && <h1>Error :( ...try refreshing</h1>}
