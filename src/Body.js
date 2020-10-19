@@ -6,15 +6,14 @@ import Navbar from './Navbar';
 import Loader from "./Loader";
 import Error from "./Error";
 import useFetchJobs from './hooks/useFetchJobs';
-import { ThemeContext } from "./contexts/ThemeContext";
-
-
+import PageContent from "./PageContent";
+import {Container} from "react-bootstrap";
 
 export default function Body() {
   const [params, setParams] = useState({})
   const [page, setPage] = useState(1)
   const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page);
-  const { isDarkMode } = useContext(ThemeContext);
+  const style={display:"flex",justifyContent:"center",alignItems:"center",alignSelf:"center"}
   function handleParamChange(e) {
     const param = e.target.name;
     const value = e.target.value;
@@ -23,23 +22,24 @@ export default function Body() {
       return {...prevParams,[param]:value}
     });
   }
-  const styles = {
-    backgroundColor: isDarkMode ? "black" : "white",
-  }
   return (
-      <>
+    <>
       <Navbar />
-      <div styles={styles}>
-        <div className="mt-5" style={{display:"flex",justifyContent:"center",alignItems:"center",alignSelf:"center"}}>
+      <PageContent>
+      <Container>
+      <div className="mt-5 text-center">
           <SearchForm params={params} onParamChange={handleParamChange}/>
-        </div>
+      </div>
+        <div className="text-center">    
           <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage}/>
-          <Loader loading={loading} jobs={jobs} error={error} />
-          <Error jobs={jobs} error={error} />
+        </div>
+        <Loader loading={loading} jobs={jobs} />
+        <Error jobs={jobs} error={error} />
         {jobs.map((job)=>{
           return <Job key={job.id} job={job} />
         })}
-      </div>
-      </>
+      </Container>
+      </PageContent>
+    </>
     )
 }

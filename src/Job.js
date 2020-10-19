@@ -10,7 +10,7 @@ export default function Job({ job }) {
     const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
     return (
         <Card style={{margin:"30px"}}>
-            <Card.Body style={isDarkMode?{backgroundColor:"white"}:{backgroundColor:"#e9ebe4"}}>
+            <Card.Body style={isDarkMode?{backgroundColor:"#F0F0F0"}:{backgroundColor:"#e9ebe4"}}>
                 <div className="d-flex justify-content-between">
                     <div>
                         <Card.Title>

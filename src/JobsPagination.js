@@ -9,7 +9,8 @@ export default function JobsPagination({page,setPage,hasNextPage}) {
         setPage(prevPage=>prevPage+amount)
     }
     return (
-        <div>
+        <div className="row">
+        <div className="col-md-4 offset-md-2">
             <Pagination>
                 {page > 2 && <Pagination.Prev onClick={() => {adjustPage(-1)}}/>}
                 {page > 2 && <Pagination.Item onClick={() => {setPage(1)}}>1</Pagination.Item>}
@@ -19,6 +20,7 @@ export default function JobsPagination({page,setPage,hasNextPage}) {
                 {hasNextPage && < Pagination.Item onClick={() => {adjustPage(+1)}}>{page + 1}</Pagination.Item>}
                 {hasNextPage && <Pagination.Next onClick={() => {adjustPage(+1)}}/>}
             </Pagination>
+        </div>
         </div>
     )
 }
