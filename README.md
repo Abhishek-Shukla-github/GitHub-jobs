@@ -1,4 +1,4 @@
-# GitHub Jobs : More intuitive and clean Job Portal.
+# GitHub Jobs : More intuitive and clean Job Portal of Github Jobs
 ### [Live Site](https://github-jobs-mui.netlify.app/)
 
 ![Overview](https://i.ibb.co/YcjtJ5D/github-jobs-loader.jpg)
